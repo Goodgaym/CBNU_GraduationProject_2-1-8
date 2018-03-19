@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <title>Main Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+        $("#btn-login").click(function(){
+            alert("Value: "+ $('#login-email').val());
+        });
+		$(".btn-signup").click(function(){
+  			var bol = true;
+ 			var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+  			if (exptext.test($(".email").val())!=true){
+				alert('이메일 형식이 올바르지 않습니다.');
+				$(".email").focus();
+				bol = false;
+  			}
+		 	return bol;     // bol 값을 반환 . 이메일 형식이 아니면 f
+		});
+    });
+		
+	function fn_emailChk(){
+	}
+		
+    </script>
+    <style>
+		@media screen and (max-width :450px){
+			.mainbox{
+				width : 280px !important;
+			}
+		}
+		.mainbox{
+			background-color : #0071bc;
+			width : 350px;
+      		display : block;
+			margin : 0 auto;
+		}
+		.mainbox h2{
+			font : bold !imporant;
+			color: white;
+		}
+		.margin20{
+			margin : 20px;
+		}
+		.inside-form{
+      		border-radius:8px;
+     		padding-top:30px;
+      		padding-bottom:30px;
+		}
+		.inside-linker{
+			color:white !important; 
+			float:right; 
+			font-size: 80%; 
+			position: relative;
+		}
+		.inside_text{
+			color : white !important;
+		}
+		.footer {
+			margin-top:10px;
+			margin-bottom:10px;
+    	}
+    	.btn-round {
+      		border-width: 1px;
+      		border-radius: 30px !important;
+      		padding: 11px 23px;
+    	}
+		.btn-lg {
+			font-size: 1em;
+			border-radius: 0.25rem;
+			padding: 15px 48px;
+		}
+    	.btn-neutral{
+ 			background-color: #ffffff;
+			color: #000000;
+		}
+    	body{
+       	 	background-color: grey;
+    	}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">    
+		<div class="row margin20">
+        		<div id="loginbox" style="margin-top:100px;" class="mainbox">
+                    <form id="loginform" class="form-horizontal" method="POST" role="form">
+						<div class="inside-form margin20">
+							<h2 class="font_white text-center">SIGN IN</h2>
+							
+                        	<div style="margin-top: 25px" class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            	<input id="login-email" type="text" class="form-control" name="username" value="" placeholder="Email">          
+                        	</div>
+                        	<div style="margin-bottom: 5px" class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            	<input id="login-password" type="password" class="form-control" name="password" placeholder="Password">
+                        	</div>
+							
+                        	<div class="form-group">
+                            	<div class="col-md-12 control">
+									<a class="inside-linker" href="#">비밀번호를 잊었나요?</a>
+								</div>
+                            	<div class="col-md-12 control">
+									<a class="inside-linker" href="#" onClick="$('#loginbox').hide(); $('#accountbox').show()">아이디가 없으신가요?</a>
+                            	</div>
+                        	</div>
+                        	<!-- Button -->
+                        	<div class="footer text-center">
+                                <a href="#" class="btn btn-round btn-lg btn-neutral">Login</a>
+                        	</div>
+						</div>   
+            		</form>
+				</div>
+				<!--가입 선택 -->
+				<div id="accountbox" style="display:none; margin-top:100px;" class="mainbox">
+                    <form id="account" class="form-horizontal" method="POST" role="form">
+						<div class="inside-form margin20">
+							<h2 class="font_white text-center" style="margin-bottom : 25px" >SIGN UP</h2>
+							
+                        	<div class="form-group">
+                            	<div class="col-md-12 control">
+									<a class="inside-linker" href="#" onClick="$('#accountbox').hide(); $('#loginbox').show()">로그인 하기</a>
+								</div>
+							</div>
+							
+                        	<div class="form-group" align="center">
+								<div class="col-md-6 col-sm-6 col-xs-6">
+									<img src="assets/signup_norm.png" class="img-responsive" onClick="$('#accountbox').hide(); $('#signupbox_user').show()">
+								</div>
+                        						
+								<div class="col-md-6 col-sm-6 col-xs-6">
+									<img src="assets/signup_corp.png" class="img-responsive" onClick="$('#accountbox').hide(); $('#signupbox_corp').show()">
+								</div>
+							</div>		
+						</div>
+                    </form>
+				</div>
+				
+				<!--가입 선택 -->
+				<div id="signupbox_user" style="display:none; margin-top:100px;" class="mainbox">
+                    <form id="signup_user" class="form-horizontal" method="POST" role="form">
+						<div class="inside-form margin20">
+							<h2 class="font_white text-center" style="margin-bottom : 25px" >SIGN UP</h2>
+								
+                        	<div class="form-group">
+                            	<div class="col-md-12 control">
+									<a class="inside-linker" href="#" onClick="$('#signupbox_user').hide(); $('#loginbox').show()">로그인 하기</a>
+								</div>
+							</div>
+							
+                        	<div class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            	<input type="text" class="email form-control" name="username" value="" placeholder="example@gmail.com">          
+                        	</div>
+							
+							<div class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            	<input type="password" class="password form-control" name="passwd" value="" maxlength="20" placeholder="********">          
+                        	</div>
+							
+                        	<div class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            	<input type="text" class="name form-control" name="name" value="" maxlength="10" placeholder="홍길동">          
+                        	</div>
+							
+                        	<div class="input-group">
+                           		<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                           		<input type="text" class="phonenumber form-control" name="phonenumber" value="" maxlength="13" placeholder="010-1234-5678">    
+							</div>
+							
+                        	<div class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            	<input type="text" class="birthday form-control" name="birthday" value="" maxlength="8" placeholder="19930415">    
+							</div>
+							
+                        	<div class="form-group text-center">
+								<label for="male" class="inside_text" style="margin-right:10px">
+                               		<input type="radio" name="sex" id="inlineCheckbox1" value="male" style="margin-right:5px"/>남성 </label>
+                            	<label for="female" class="inside_text">
+                               		<input type="radio" name="sex" id="inlineCheckbox2" value="female" style="margin-right:5px"/>여성 </label>
+                       		</div>
+							
+                        	<div class="footer text-center">
+                                <a href="#" class="btn-signup btn btn-round btn-lg btn-neutral">가입하기</a>
+                        	</div>
+						</div>
+					</form>
+				</div>
+
+				<!--가입 선택 -->
+				<div id="signupbox_corp" style="display:none; margin-top:100px;" class="mainbox">
+                    <form id="signup_corp" class="form-horizontal" method="POST" role="form">
+						<div class="inside-form margin20">
+							<h2 class="font_white text-center" style="margin-bottom : 25px" >SIGN UP</h2>
+								
+                        	<div class="form-group">
+                            	<div class="col-md-12 control">
+									<a class="inside-linker" href="#" onClick="$('#signupbox_corp').hide(); $('#loginbox').show()">로그인 하기</a>
+								</div>
+							</div>
+							
+                        	<div class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            	<input type="text" class="email form-control" name="username" value="" placeholder="example@gmail.com">          
+                        	</div>
+							
+							<div class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            	<input type="password" class="password form-control" name="passwd" value="" maxlength="20" placeholder="********">          
+                        	</div>
+							
+                        	<div class="input-group">
+                            	<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            	<input type="text" class="name form-control" name="name" value="" maxlength="10" placeholder="홍길동">          
+                        	</div>
+							
+                        	<div class="input-group">
+                           		<span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                           		<input type="text" class="phonenumber form-control" name="phonenumber" value="" maxlength="13" placeholder="010-1234-5678">    
+							</div>
+							
+                        	<div class="input-group">
+                           		<span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+                           		<input type="text" class="corpname form-control" name="corpname" value="" placeholder="회사명">    
+							</div>
+							
+                        	<div class="input-group">
+                           		<span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                           		<input type="text" class="corpphonenumber form-control" name="corpphonenumber" value="" placeholder="회사전화번호">    
+							</div>
+							
+                        	<div class="input-group">
+                           		<span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
+                           		<input type="text" class="corppart form-control" name="corppart" value="" placeholder="부서">    
+							</div>
+							
+                        	<div class="input-group">
+                           		<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+                           		<input type="text" class="corprank form-control" name="corprank" value="" placeholder="직급">    
+							</div>
+							
+                        	<div class="footer text-center">
+                                <a href="#" class="btn-signup btn btn-round btn-lg btn-neutral">가입하기</a>
+                        	</div>
+						</div>
+					</form>
+				</div>
+		</div>
+ 	</div>
+</body>
+</html>

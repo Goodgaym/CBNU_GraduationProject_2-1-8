@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1">
+    <title xml:lang="ko">Overpol_layout</title>
+    <description xml:lang="ko">
+        Overpol 홈페이지의 레이아웃 입니다.
+
+        제작: 박준현
+    </description>
+    <version>0.1</version>
+    <date>2018-03-23</date>
+    <link>http://xpressengine.com/</link>
+
+    <author email_address="jon501@naver.com" link="http://xpressengine.com/">
+        <name xml:lang="ko">박준현</name>
+    </author>
+
+    <extra_vars>
+        <var name="logo_image" type="image">
+            <title>로고 이미지</title>
+            <description>로고 이미지 입니다.</description>
+        </var>
+        <var name="menu_image_1" type="image">
+            <title>메뉴 이미지 1</title>
+            <description> 상단 메뉴의 메뉴에 들어갈 이미지 입니다.</description>
+        </var>
+        <var name="menu_image_2" type="image">
+            <title>메뉴 이미지 2</title>
+            <description> 상단 메뉴의 메뉴에 들어갈 이미지 입니다.</description>
+        </var>
+        <var name="menu_image_3" type="image">
+            <title>메뉴 이미지 3</title>
+            <description> 상단 메뉴의 메뉴에 들어갈 이미지 입니다.</description>
+        </var>
+        <var name="menu_image_4" type="image">
+            <title>메뉴 이미지 4</title>
+            <description> 상단 메뉴의 메뉴에 들어갈 이미지 입니다.</description>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+        </menu>
+    </menus>
+</layout>

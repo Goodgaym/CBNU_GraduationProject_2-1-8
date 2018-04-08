@@ -1,0 +1,411 @@
+﻿
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <load target="assets/css/main.css" />
+    <load target="assets/css/font-awesome.min.css" />
+</head>
+
+<style type="text/css">
+    #header {
+        background-image: url("{$layout_info->header_img}");
+        padding-top: {$layout_info->logo_padding}em;
+    }
+    #nav > ul > li > a{
+        color: {$layout_info->nav_color};
+    }
+    body.homepage #header {
+        height: {$layout_info->header_vh}vh;
+    }
+    .image.featured{
+        overflow: hidden;        
+    }
+    .widgetContainer img{
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        -ms-transition-duration: 0.3s;
+        -o-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+    }
+    .widgetContainer img:hover{
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);        
+    }
+    #footer h3{
+        font-size: 1.1em;
+    }
+</style>
+
+<!--@if($layout_info->layout_type == main)-->
+
+<body class="homepage" style="line-height:0;">
+    <div id="page-wrapper" style="line-height:1.85em;">
+
+        <!-- 헤더 -->
+        <div id="header">
+
+            <!-- 로고 -->
+            <div class="inner">
+                <header>
+                    <h1>
+                        <a href="{$layout_info->logo_url}" cond="$layout_info->logo_img" id="logo"><img src="{$layout_info->logo_img}" /></a>
+                        <a href="{$layout_info->logo_url}" cond="$layout_info->logo_text" id="logo">{$layout_info->logo_text}</a></h1>
+                    <hr />
+                    <p class="main_text_{$layout_info->layout_type}">{$layout_info->logo_text2}</p>
+                </header>
+                <footer class="main_text_{$layout_info->layout_type}">
+                    <a href="#banner" class="button circled scrolly">Start</a>
+                    <!--@if($logged_info)-->
+                    <a href="{getUrl('act','dispMemberLogout')}" class="button circled">Logout</a>
+                    <!--@else-->
+                    <a id="login" class="button circled">Login</a>
+                    <!--@end-->
+                    <div id="login_pop">
+                        <img class="zbxe_widget_output" widget="login_info" skin="xe_official" colorset="default" />
+                    </div>
+                </footer>
+            </div>
+            <script>
+                jQuery('#login').on('click',function(){
+                    jQuery('#login_pop').toggle();
+                })
+            </script>
+            <style>
+                .login_default fieldset{
+                    background: #fff;
+                }
+                .login_default fieldset ul.help li{
+                    display: inline-block;
+                    padding: 0 10px;
+                }
+                .login_default fieldset p.keep_msg{
+                    display: none !important;
+                }
+                .login_default fieldset .idpw input{
+                    margin: 0;
+                    height: 20px;
+                }
+                .login_default fieldset .login{
+                    padding-top: 5px;
+                }
+                #login_pop{
+                    position: absolute;
+                    left: 90%;
+                    top: 60%;
+                    display: none;
+                    z-index: 99;
+                }
+            </style>          
+
+            <!-- 메인 메뉴 -->
+            <nav id="nav" cond="$GNB->list">
+                <ul>
+                    <li loop="$GNB->list => $key1, $val1">
+                        <a href="{$val1['href']}" target="_self" |cond="$val1['open_window'] == 'Y'">{$val1['link']}</a>
+                        <block cond="$val1['selected']">{@ $_selected_menu = $val1}</block>
+                        <ul cond="$val1['list']">
+                            <li loop="$val1['list'] => $key2, $val2" |cond="$val2['list']">
+                                <a href="{$val2['href']}" target="_self" |cond="$val2['open_window'] == 'Y'">{$val2['link']}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+        <!-- 스크롤 제목 -->
+        <section id="banner">
+            <header>
+                <h2>{$layout_info->scroll_title}</h2>
+                <p>{$layout_info->scroll_text}</p>
+            </header>
+        </section>
+
+
+        <!-- 스크롤 슬라이드 -->
+        <img class="zbxe_widget_output"
+             widget="content"
+             skin="J_Finder_scroll"
+             colorset="white"
+             content_type="gallery"
+             module_srls="{$layout_info->scroll_srl}"
+             list_type="image_title_content"
+             tab_type="none"
+             markup_type="table"
+             cols_list_count="3"
+             list_count="{$layout_info->scroll_list_count}"
+             page_count="1"
+             subject_cut_size="{$layout_info->scroll_subject_cut}"
+             content_cut_size="{$layout_info->scroll_content_cut}"
+             option_view="title,content,thumbnail"
+             show_browser_title="N"
+             show_comment_count="N"
+             show_trackback_count="N"
+             show_category="N"
+             show_icon="N"
+             order_target="regdate"
+             order_type="desc"
+             thumbnail_width="300"
+             thumbnail_height="200"
+             thumbnail_type="crop" />
+
+        <!-- 본문 -->
+        <div class="wrapper2">
+
+            <article id="main" class="container special">
+                <a href="{$layout_info->contain_btn_url}" class="image featured"><img src="{$layout_info->contain_img}" alt="" /></a>
+                <header>
+                    <h2><a href="{$layout_info->contain_btn_url}">{$layout_info->contain_text_01}</a></h2>
+                    <p>{$layout_info->contain_text_02}</p>
+                </header>
+                <footer>
+                    <a href="{$layout_info->contain_btn_url}" class="button">{$layout_info->contain_btn_text}</a>
+                </footer>
+            </article>
+
+        </div>
+
+        <!-- 최근 이미지 -->
+        <div class="wrapper2">
+
+            <section id="features" class="container special">
+                <header>
+                    <h2>{$layout_info->latest_text_01}</h2>
+                    <p>{$layout_info->latest_text_02}</p>
+                </header>
+
+                <img class="zbxe_widget_output"
+                     widget="content"
+                     skin="J_Finder"
+                     colorset="white"
+                     content_type="gallery"
+                     module_srls="{$layout_info->latest_srl}"
+                     list_type="image_title_content"
+                     tab_type="none"
+                     markup_type="table"
+                     cols_list_count="3"
+                     list_count="3"
+                     page_count="1"
+                     subject_cut_size="{$layout_info->latest_subject_cut}"
+                     content_cut_size="{$layout_info->latest_content_cut}"
+                     option_view="title,content,thumbnail"
+                     show_browser_title="N"
+                     show_comment_count="N"
+                     show_trackback_count="N"
+                     show_category="N"
+                     show_icon="N"
+                     order_target="regdate"
+                     order_type="desc"
+                     thumbnail_width="300"
+                     thumbnail_height="300"
+                     thumbnail_type="crop" />
+
+            </section>
+
+        </div>
+
+        
+
+<!--@else-->
+
+
+
+<body class="left-sidebar" style="line-height:0;">
+    <div id="page-wrapper" style="line-height:1.85em;">
+
+        <!-- 헤더 -->
+        <div id="header" style="padding: 9em 0 3em 0;">
+
+            <!-- 로고 -->
+            <div class="inner">
+                <header>
+                    <h1><a href="{$layout_info->logo_url}" id="logo">{$layout_info->logo_text}</a></h1>
+                </header>
+            </div>
+
+            <!-- 메인메뉴 -->
+            <nav id="nav" cond="$GNB->list">
+                <ul>
+                    <li loop="$GNB->list => $key1, $val1">
+                        <a href="{$val1['href']}" target="_self" |cond="$val1['open_window'] == 'Y'">{$val1['link']}</a>
+                        <block cond="$val1['selected']">{@ $_selected_menu = $val1}</block>
+                        <ul cond="$val1['list']">
+                            <li loop="$val1['list'] => $key2, $val2" |cond="$val2['list']">
+                                <a href="{$val2['href']}" target="_self" |cond="$val2['open_window'] == 'Y'">{$val2['link']}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+        <!-- 본문 -->
+        <div class="wrapper">
+
+            <!-- 사이드 2차메뉴 -->
+            <div class="container" cond="$layout_info->layout_type_lnb == 'Y'">
+                <div class="row 100%">
+                    <div class="3u 12u(mobile)" id="sidebar">
+                        <hr class="first" />
+                        <nav class="lnb_1">
+                            <ul loop="$GNB->list=>$key1,$val1" cond="$val1['selected'] && $val1['list']">
+                                <li loop="$val1['list']=>$key2,$val2" class="lnb_2" |cond="$val2['selected']">
+                                    <h4><a href="{$val2['href']}" target="_self" |cond="$val2['open_window']=='Y'">{$val2['link']}</a></h4>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="9u 12u(mobile) important(mobile)" id="content">
+                        <article id="main">
+                            {$content}
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <!-- 풀페이지 -->
+            <div class="container" cond="$layout_info->layout_type_lnb == 'N'">
+                <article id="main">
+                        {$content}
+                </article>
+            </div>
+
+        </div>
+
+        <!--@end-->
+
+        <!-- 푸터 -->
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- 최근 게시물 -->
+                    <section class="4u 12u(mobile)">
+                        <header>
+                            <h2 class="icon fa-file circled"><span class="label">Tweets</span></h2>
+                        </header>
+                        <img class="zbxe_widget_output"
+                             widget="content"
+                             skin="J_Finder"
+                             colorset="white"
+                             content_type="document"
+                             module_srls=""
+                             list_type="normal"
+                             tab_type="none"
+                             markup_type="list"
+                             list_count="4"
+                             page_count="1"
+                             subject_cut_size="25"
+                             option_view="title,regdate,nickname"
+                             show_browser_title="N"
+                             show_comment_count="N"
+                             show_trackback_count="N"
+                             show_category="N"
+                             show_icon="N"
+                             order_target="regdate"
+                             order_type="desc"
+                             thumbnail_type="crop" />
+                    </section>
+
+                    <!-- 최근 댓글 -->
+                    <section class="4u 12u(mobile)">
+                        <header>
+                            <h2 class="icon fa-comment circled"><span class="label">Posts</span></h2>
+                        </header>
+                        <img class="zbxe_widget_output"
+                             widget="content"
+                             skin="J_Finder"
+                             colorset="white"
+                             content_type="comment"
+                             module_srls=""
+                             list_type="normal"
+                             tab_type="none"
+                             markup_type="list"
+                             list_count="4"
+                             page_count="1"
+                             subject_cut_size="25"
+                             option_view="title,regdate,nickname"
+                             show_browser_title="N"
+                             show_comment_count="N"
+                             show_trackback_count="N"
+                             show_category="N"
+                             show_icon="N"
+                             order_target="regdate"
+                             order_type="desc"
+                             thumbnail_type="crop" />
+                    </section>
+
+                    <!-- 갤러리 -->
+                    <section class="4u 12u(mobile)">
+                        <header>
+                            <h2 class="icon fa-camera circled"><span class="label">Photos</span></h2>
+                        </header>
+
+                        <img class="zbxe_widget_output"
+                             widget="content"
+                             skin="default"
+                             colorset="white"
+                             content_type="gallery"
+                             module_srls="{$layout_info->footer_gallery_srl}"
+                             list_type="gallery"
+                             tab_type="none"
+                             markup_type="list"
+                             list_count="6"
+                             cols_list_count="2"
+                             page_count="1"
+                             option_view="thumbnail"
+                             order_target="regdate"
+                             order_type="desc"
+                             thumbnail_type="crop"
+                             thumbnail_width="150"
+                             thumbnail_height="120" />
+                    </section>
+
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="12u">
+
+                        <!-- 하단 문구 -->
+                        <section class="contact">
+                            <header>
+                                <h3>{$layout_info->footer_text_01}</h3>
+                            </header>
+                            <p>{$layout_info->footer_text_02}</p>
+                            <ul class="icons">
+                                <li><a href="{$layout_info->facebook}" target="_blank" cond="$layout_info->facebook" class="icon fa-facebook"><span class="label"></span></a></li>
+                                <li><a href="{$layout_info->twitter}" target="_blank" cond="$layout_info->twitter" class="icon fa-twitter"><span class="label"></span></a></li>
+                                <li><a href="{$layout_info->instargram}" target="_blank" cond="$layout_info->instargram" class="icon fa-instagram"><span class="label"></span></a></li>
+                                <li><a href="{$layout_info->youtube}" target="_blank" cond="$layout_info->youtube" class="icon fa-youtube"><span class="label"></span></a></li>
+                                <li><a href="{$layout_info->google_plus}" target="_blank" cond="$layout_info->google_plus" class="icon fa-google-plus"><span class="label"></span></a></li>
+                            </ul>
+                        </section>
+
+                        <!-- 카피라이트 -->
+                        <div class="copyright">
+                            <ul class="menu">
+                                <li>{$layout_info->copyright}</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.onvisible.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+</body>

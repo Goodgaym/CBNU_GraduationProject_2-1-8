@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+	<title xml:lang="ko">J Finder</title>
+	<description xml:lang="ko">J 파인더 레이아웃</description>
+	<version>1.3</version>
+	<date>2018-2-24</date>
+	<author email_address="chcgogo2@nate.com" link="https://www.jbirdweb.com/">
+		<name xml:lang="ko">JBirdWeb</name>
+	</author>
+	<menus>
+		<menu name="GNB" maxdepth="2" default="true">
+			<title xml:lang="ko">메인 메뉴</title>
+		</menu>
+	</menus>
+	<extra_vars>
+		<group>
+      <title xml:lang="ko">레이아웃 타입</title>
+      <var name="layout_type" type="select" default="auto">
+        <title xml:lang="ko">레이아웃 타입</title>
+        <options value="main">
+          <title xml:lang="ko">메인페이지</title>
+        </options>
+        <options value="sub">
+          <title xml:lang="ko">서브페이지</title>
+        </options>
+      </var>
+      <var name="layout_type_lnb" type="select">
+        <title xml:lang="ko">서브페이지</title>
+        <options value="Y">
+          <title xml:lang="ko">왼쪽 2차메뉴</title>
+        </options>
+        <options value="N">
+          <title xml:lang="ko">풀 페이지</title>
+        </options>
+      </var>
+    </group>
+    <group>
+      <title xml:lang="ko">기본 설정</title>
+      <var name="logo_img" type="image">
+        <title xml:lang="ko">로고 이미지</title>
+      </var>
+      <var name="logo_text" type="text">
+        <title xml:lang="ko">로고 텍스트</title>
+      </var>
+      <var name="logo_url" type="text">
+        <title xml:lang="ko">로고 Url</title>
+      </var>
+      <var name="logo_padding" type="text">
+        <title xml:lang="ko">로고 상단 여백</title>
+        <description xml:lang="ko">기본값 20 / 단위 : em</description>
+      </var>
+      <var name="logo_text2" type="text">
+        <title xml:lang="ko">로고 하단 텍스트</title>
+      </var>
+      <var name="nav_color" type="text">
+        <title xml:lang="ko">메인메뉴 컬러</title>
+        <description xml:lang="ko">기본값 #fff</description>
+      </var>
+      <var name="header_img" type="image">
+        <title xml:lang="ko">배경 이미지</title>
+        <description xml:lang="ko">권장 사이즈 1920*1280</description>
+      </var>
+      <var name="header_vh" type="text">
+        <title xml:lang="ko">메인페이지 배경 높이</title>
+        <description xml:lang="ko">기본값 100 / 단위 : vh</description>
+      </var>
+    </group>
+    <group>
+      <title xml:lang="ko">메인 스크롤 섹션</title>
+      <var name="scroll_title" type="text">
+        <title xml:lang="ko">제목</title>
+      </var>
+      <var name="scroll_text" type="textarea">
+        <title xml:lang="ko">부제목</title>
+      </var>
+      <var name="scroll_srl" type="text">
+        <title xml:lang="ko">게시판 모듈값</title>
+        <description xml:lang="ko">스크롤에 표시될 게시판의 모듈 srl 값을 입력하세요. </description>
+      </var>
+      <var name="scroll_list_count" type="text">
+        <title xml:lang="ko">목록수</title>
+        <description xml:lang="ko">게시글의 수를 입력하세요. (ex : 8) </description>
+      </var>
+      <var name="scroll_subject_cut" type="text">
+        <title xml:lang="ko">제목 글자수</title>
+        <description xml:lang="ko">게시글 제목의 길이를 입력하세요. (ex : 10) </description>
+      </var>
+      <var name="scroll_content_cut" type="text">
+        <title xml:lang="ko">내용 글자수</title>
+        <description xml:lang="ko">게시글 내용의 길이를 입력하세요. (ex : 50) </description>
+      </var>
+    </group>
+    <group>
+      <title xml:lang="ko">메인 본문 섹션</title>
+      <var name="contain_img" type="image">
+        <title xml:lang="ko">이미지</title>
+      </var>
+      <var name="contain_text_01" type="text">
+        <title xml:lang="ko">제목</title>
+      </var>
+      <var name="contain_text_02" type="textarea">
+        <title xml:lang="ko">부제목</title>
+      </var>
+      <var name="contain_btn_text" type="text">
+        <title xml:lang="ko">버튼 텍스트</title>
+      </var>
+      <var name="contain_btn_url" type="text">
+        <title xml:lang="ko">버튼 Url</title>
+      </var>
+    </group>
+    <group>
+      <title xml:lang="ko">메인 최근이미지 섹션</title>
+      <var name="latest_text_01" type="text">
+        <title xml:lang="ko">제목</title>
+      </var>
+      <var name="latest_text_02" type="textarea">
+        <title xml:lang="ko">부제목</title>
+      </var>
+      <var name="latest_srl" type="text">
+        <title xml:lang="ko">게시판 모듈값</title>
+        <description xml:lang="ko">최근이미지에 표시될 게시판의 모듈 srl 값을 입력하세요. </description>
+      </var>
+      <var name="latest_subject_cut" type="text">
+        <title xml:lang="ko">제목 글자수</title>
+        <description xml:lang="ko">게시글 제목의 길이를 입력하세요. (ex : 10) </description>
+      </var>
+      <var name="latest_content_cut" type="text">
+        <title xml:lang="ko">내용 글자수</title>
+        <description xml:lang="ko">게시글 내용의 길이를 입력하세요. (ex : 200) </description>
+      </var>
+    </group>
+    <group>
+      <title xml:lang="ko">하단 설정</title>
+      <var name="footer_gallery_srl" type="text">
+        <title xml:lang="ko">게시판 모듈값</title>
+        <description xml:lang="ko">갤러리에 표시될 게시판의 모듈 srl 값을 입력하세요. </description>
+      </var>
+      <var name="footer_text_01" type="text">
+        <title xml:lang="ko">하단 텍스트 01</title>
+      </var>
+      <var name="footer_text_02" type="text">
+        <title xml:lang="ko">하단 텍스트 02</title>
+      </var>
+      <var name="facebook" type="text">
+        <title xml:lang="ko">페이스북 주소</title>
+      </var>
+      <var name="twitter" type="text">
+        <title xml:lang="ko">트위터 주소</title>
+      </var>
+      <var name="instargram" type="text">
+        <title xml:lang="ko">인스타그램 주소</title>
+      </var>
+      <var name="youtube" type="text">
+        <title xml:lang="ko">유튜브 주소</title>
+      </var>
+      <var name="google_plus" type="text">
+        <title xml:lang="ko">구글 Plus 주소</title>
+      </var>
+      <var name="copyright" type="text">
+        <title xml:lang="ko">카피라이트</title>
+      </var>
+    </group>
+  </extra_vars>
+</layout>

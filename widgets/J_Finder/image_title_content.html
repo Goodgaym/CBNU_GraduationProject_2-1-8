@@ -1,0 +1,23 @@
+<div class="row">
+    {@$_idx=0}
+    <!--@foreach($widget_info->content_items as $key => $item)-->
+    <article class="4u 12u(mobile) special"<!--@if($_idx >= $widget_info->list_count)--> style="display:none"<!--@end-->>
+
+    <!--@for($j=0,$c=count($widget_info->option_view_arr);$j<$c;$j++)-->
+
+        <!--@if($widget_info->option_view_arr[$j]=='title')-->
+        <a href="{$item->getLink()}" class="image featured" target="_self" |cond="$widget_info->new_window">
+            <img src="{$item->getThumbnail()}" />
+        </a>
+
+        <header>
+            <h3><a href="{$item->getLink()}" class="title" target="_self" |cond="$widget_info->new_window">{$item->getTitle($widget_info->subject_cut_size)}</a></h3>
+        </header>
+        <p>{$item->getContent()}</p>
+
+            <!--@end-->
+            <!--@end-->
+    </article>
+    {@$_idx++}
+    <!--@end-->
+</div>

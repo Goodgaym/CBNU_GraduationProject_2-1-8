@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">Overpoyle</title>
+    <description xml:lang="ko">XpressEngine 기반의 블로그 전용 모듈 입니다.</description>
+    <date>2018-04-13</date>
+    <category>package</category>
+    <author email_address="xe_dev@arnia.ro" link="http://www.xpressengine.org">
+        <name xml:lang="ko">Arnia </name>
+	</author>
+</module>

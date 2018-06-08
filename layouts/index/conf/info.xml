@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">XE 연습 가자</title>
+    
+    <description xml:lang="ko">
+        XE 연습하는 페이지
+        제작 : Seonjoo
+    </description>
+ 
+   
+    <version>1.7</version>
+    <date>2018-03-25</date>
+    <link>http://xpressengine.com/</link>
+
+    <author email_address="seonjoo2030s@hanmail.net" link="http://xpressengine.com/">
+        <name xml:lang="ko">SEONJOO</name>
+      
+    </author>
+
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+         
+           
+            <description xml:lang="ko">원하는 컬러셋을 선택해주세요.</description>
+  
+        
+           
+            <options value="default">
+                <title xml:lang="ko">기본</title>
+
+            </options>
+            <options value="black">
+                <title xml:lang="ko">검은색</title>
+   
+            </options>
+            <options value="white">
+                <title xml:lang="ko">하얀색</title>
+
+            </options>
+        </var>
+        
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+   
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (세로길이가 23px인 투명이미지가 가장 어울립니다)</description>
+
+        </var>
+        <var name="logo_image_alt" type="text">
+            <title xml:lang="ko">로고이미지 대체문자</title>
+            
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지 대체문자를 입력하세요.</description>
+           
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+           
+            
+            
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+           
+          
+             </var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">배경 이미지</title>
+         
+            <description xml:lang="ko">배경 이미지를 사용하려면 등록해주세요.</description>
+           
+        </var>
+        
+   
+        <var name="layout_view_type" type="select">
+        
+        <title xml:lang="ko">레이아웃 형태</title>
+        <description xml:lang="ko">원하시는 레이아웃의 보기 형태를 선택해 주세요</description>
+        
+        <options value="main">
+            <title xml:lang="ko">메인 레이아웃 형태로 사용</title>
+        </options>
+        
+        <options value="sub">
+            <title xml:lang="ko">서브 레이아웃 형태로 사용</title>
+        </options>
+    </var>
+     
+      </extra_vars>
+
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+         
+        </menu>
+    </menus>
+    
+  
+    
+</layout>

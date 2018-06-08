@@ -126,7 +126,7 @@ $__Context->_body_class[] = $__Context->layout_info->sidebar_position;
 		<?php  $__Context->_visual_class[] = 'sub' ?>
 		<?php if($__Context->layout_info->menu_type_sub === 'basic_regular' || $__Context->layout_info->menu_type_sub === 'magazine_regular'){ ?>
 			<?php  $__Context->_visual_class[] = 'sub_type2' ?>
-		<?php } ?>f
+		<?php } ?>
 		<?php if($__Context->layout_info->menu_type_sub === 'magazine_simple' || $__Context->layout_info->menu_type_sub === 'magazine_regular'){ ?>
 			<?php  $__Context->_container_class[] = 'magazine' ?>
 			<?php  $__Context->_magazine_header = true ?>
@@ -216,7 +216,6 @@ $__Context->_logo_img = 's_logo.png';
 					<?php } ?>
 				</a>
 			</h1>
-			
 			
 			<div class="side">
 				<ul>

@@ -4,19 +4,19 @@ $query->setQueryId("deleteComments");
 $query->setAction("delete");
 $query->setPriority("");
 
-${'module_srl8_argument'} = new ConditionArgument('module_srl', $args->module_srl, 'equal');
-${'module_srl8_argument'}->checkFilter('number');
-${'module_srl8_argument'}->checkNotNull();
-${'module_srl8_argument'}->createConditionValue();
-if(!${'module_srl8_argument'}->isValid()) return ${'module_srl8_argument'}->getErrorMessage();
-if(${'module_srl8_argument'} !== null) ${'module_srl8_argument'}->setColumnType('number');
+${'module_srl7_argument'} = new ConditionArgument('module_srl', $args->module_srl, 'equal');
+${'module_srl7_argument'}->checkFilter('number');
+${'module_srl7_argument'}->checkNotNull();
+${'module_srl7_argument'}->createConditionValue();
+if(!${'module_srl7_argument'}->isValid()) return ${'module_srl7_argument'}->getErrorMessage();
+if(${'module_srl7_argument'} !== null) ${'module_srl7_argument'}->setColumnType('number');
 
 $query->setTables(array(
 new Table('`xe_comments`', '`comments`')
 ));
 $query->setConditions(array(
 new ConditionGroup(array(
-new ConditionWithArgument('`module_srl`',$module_srl8_argument,"equal")))
+new ConditionWithArgument('`module_srl`',$module_srl7_argument,"equal")))
 ));
 $query->setGroups(array());
 $query->setOrder(array());

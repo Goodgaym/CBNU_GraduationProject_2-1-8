@@ -4,17 +4,17 @@ $query->setQueryId("getMids");
 $query->setAction("select");
 $query->setPriority("");
 if(isset($args->site_srl)) {
-${'site_srl1_argument'} = new ConditionArgument('site_srl', $args->site_srl, 'equal');
-${'site_srl1_argument'}->createConditionValue();
-if(!${'site_srl1_argument'}->isValid()) return ${'site_srl1_argument'}->getErrorMessage();
+${'site_srl76_argument'} = new ConditionArgument('site_srl', $args->site_srl, 'equal');
+${'site_srl76_argument'}->createConditionValue();
+if(!${'site_srl76_argument'}->isValid()) return ${'site_srl76_argument'}->getErrorMessage();
 } else
-${'site_srl1_argument'} = NULL;if(${'site_srl1_argument'} !== null) ${'site_srl1_argument'}->setColumnType('number');
+${'site_srl76_argument'} = NULL;if(${'site_srl76_argument'} !== null) ${'site_srl76_argument'}->setColumnType('number');
 if(isset($args->module_srls)) {
-${'module_srls2_argument'} = new ConditionArgument('module_srls', $args->module_srls, 'in');
-${'module_srls2_argument'}->createConditionValue();
-if(!${'module_srls2_argument'}->isValid()) return ${'module_srls2_argument'}->getErrorMessage();
+${'module_srls77_argument'} = new ConditionArgument('module_srls', $args->module_srls, 'in');
+${'module_srls77_argument'}->createConditionValue();
+if(!${'module_srls77_argument'}->isValid()) return ${'module_srls77_argument'}->getErrorMessage();
 } else
-${'module_srls2_argument'} = NULL;if(${'module_srls2_argument'} !== null) ${'module_srls2_argument'}->setColumnType('number');
+${'module_srls77_argument'} = NULL;if(${'module_srls77_argument'} !== null) ${'module_srls77_argument'}->setColumnType('number');
 
 $query->setColumns(array(
 new SelectExpression('`modules`.`site_srl`')
@@ -32,8 +32,8 @@ new ConditionWithoutArgument('`sites`.`site_srl`','`modules`.`site_srl`',"equal"
 ));
 $query->setConditions(array(
 new ConditionGroup(array(
-new ConditionWithArgument('`modules`.`site_srl`',$site_srl1_argument,"equal", 'and')
-,new ConditionWithArgument('`modules`.`module_srl`',$module_srls2_argument,"in", 'and')))
+new ConditionWithArgument('`modules`.`site_srl`',$site_srl76_argument,"equal", 'and')
+,new ConditionWithArgument('`modules`.`module_srl`',$module_srls77_argument,"in", 'and')))
 ));
 $query->setGroups(array());
 $query->setOrder(array());

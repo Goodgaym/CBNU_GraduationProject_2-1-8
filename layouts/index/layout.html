@@ -1,0 +1,17 @@
+<!--// js 파일 import-->
+<!--%import("js/site_default.js")-->
+
+<!--// 레이아웃과 연동될 css 파일 import-->
+<!--%import("css/site_default.css")-->
+
+
+<h1>안녕하세요</h1>
+<!--@if($layout_info->layout_view_type == "main")-->
+<h1>메인 레이아웃 형태로 선택시에 이부분이 보입니다.</h1>
+
+<!--@elseif($layout_info->layout_view_type == "sub")-->
+
+<h1>서브 레이아웃 형태로 선택시에는 이부분만 보입니다.</h1>
+
+<!--@end-->
+	<img widget="login_info" skin="xe_official" colorset="{$layout_info->colorset}" />

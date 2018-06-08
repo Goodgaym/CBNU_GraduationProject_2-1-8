@@ -4,15 +4,15 @@ $query->setQueryId("getModuleCategories");
 $query->setAction("select");
 $query->setPriority("");
 if(isset($args->moduleCategorySrl)) {
-${'moduleCategorySrl2_argument'} = new ConditionArgument('moduleCategorySrl', $args->moduleCategorySrl, 'in');
-${'moduleCategorySrl2_argument'}->createConditionValue();
-if(!${'moduleCategorySrl2_argument'}->isValid()) return ${'moduleCategorySrl2_argument'}->getErrorMessage();
+${'moduleCategorySrl1_argument'} = new ConditionArgument('moduleCategorySrl', $args->moduleCategorySrl, 'in');
+${'moduleCategorySrl1_argument'}->createConditionValue();
+if(!${'moduleCategorySrl1_argument'}->isValid()) return ${'moduleCategorySrl1_argument'}->getErrorMessage();
 } else
-${'moduleCategorySrl2_argument'} = NULL;if(${'moduleCategorySrl2_argument'} !== null) ${'moduleCategorySrl2_argument'}->setColumnType('number');
+${'moduleCategorySrl1_argument'} = NULL;if(${'moduleCategorySrl1_argument'} !== null) ${'moduleCategorySrl1_argument'}->setColumnType('number');
 
-${'sort_index3_argument'} = new Argument('sort_index', $args->{'sort_index'});
-${'sort_index3_argument'}->ensureDefaultValue('title');
-if(!${'sort_index3_argument'}->isValid()) return ${'sort_index3_argument'}->getErrorMessage();
+${'sort_index2_argument'} = new Argument('sort_index', $args->{'sort_index'});
+${'sort_index2_argument'}->ensureDefaultValue('title');
+if(!${'sort_index2_argument'}->isValid()) return ${'sort_index2_argument'}->getErrorMessage();
 
 $query->setColumns(array(
 new StarExpression()
@@ -22,11 +22,11 @@ new Table('`xe_module_categories`', '`module_categories`')
 ));
 $query->setConditions(array(
 new ConditionGroup(array(
-new ConditionWithArgument('`module_category_srl`',$moduleCategorySrl2_argument,"in")))
+new ConditionWithArgument('`module_category_srl`',$moduleCategorySrl1_argument,"in")))
 ));
 $query->setGroups(array());
 $query->setOrder(array(
-new OrderByColumn(${'sort_index3_argument'}, "asc")
+new OrderByColumn(${'sort_index2_argument'}, "asc")
 ));
 $query->setLimit();
 return $query; ?>

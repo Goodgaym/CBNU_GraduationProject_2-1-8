@@ -4,19 +4,19 @@ $query->setQueryId("deleteModuleDocument");
 $query->setAction("delete");
 $query->setPriority("");
 
-${'module_srl14_argument'} = new ConditionArgument('module_srl', $args->module_srl, 'equal');
-${'module_srl14_argument'}->checkFilter('number');
-${'module_srl14_argument'}->checkNotNull();
-${'module_srl14_argument'}->createConditionValue();
-if(!${'module_srl14_argument'}->isValid()) return ${'module_srl14_argument'}->getErrorMessage();
-if(${'module_srl14_argument'} !== null) ${'module_srl14_argument'}->setColumnType('number');
+${'module_srl13_argument'} = new ConditionArgument('module_srl', $args->module_srl, 'equal');
+${'module_srl13_argument'}->checkFilter('number');
+${'module_srl13_argument'}->checkNotNull();
+${'module_srl13_argument'}->createConditionValue();
+if(!${'module_srl13_argument'}->isValid()) return ${'module_srl13_argument'}->getErrorMessage();
+if(${'module_srl13_argument'} !== null) ${'module_srl13_argument'}->setColumnType('number');
 
 $query->setTables(array(
 new Table('`xe_documents`', '`documents`')
 ));
 $query->setConditions(array(
 new ConditionGroup(array(
-new ConditionWithArgument('`module_srl`',$module_srl14_argument,"equal")))
+new ConditionWithArgument('`module_srl`',$module_srl13_argument,"equal")))
 ));
 $query->setGroups(array());
 $query->setOrder(array());

@@ -1,92 +1,121 @@
+<load target="css/bootstrap.min.css" />
+<load target="js/jquery-1.11.3.min.js" />
+<load target="js/bootstrap.min.js" />
+
+<load target="css/login.overpol.css" />
 <load target="../../tpl/js/signup_check.js" />
+
 <!--// datepicker javascript plugin load -->
 <!--%load_js_plugin("ui")-->
 <!--%load_js_plugin("ui.datepicker")-->
-<include target="./common_header.html" />
-    <h1 style="border-bottom:1px solid #ccc">{$lang->cmd_signup}</h1>
-	<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/member/skins'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
-		<p>{$XE_VALIDATOR_MESSAGE}</p>
+<!-- 유저 가입 -->
+<load target="../../modules/member/skins/default/js/member.js" />
+<section class="login_widget xm">
+	<div class="ly_dimmed"></div>
+	<div class="signin">
+		<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/member/skins'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+			<p>{$XE_VALIDATOR_MESSAGE}</p>
+		</div>
+		<form ruleset="@insertMember" id="signup_user" class="form-horizontal margin20" action="./" method="POST" role="form">
+			<input type="hidden" name="act" value="procMemberInsert" />
+			<input type="hidden" name="xe_validator_id" value="modules/member/skins" />
+			<input type="hidden" name="success_return_url" value="{getUrl('act','dispMemberInfo')}" />
+			<h2 class="font_white text-center" style="margin-bottom : 25px">SIGN UP</h2>
+
+			<div class="form-group">
+				<div class="col-md-12 control">
+					<a class="inside-linker" href="#" onClick="$('#signupbox_user').hide(); $('#loginbox').show()">로그인 하기</a>
+				</div>
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-envelope"></i>
+				</span>
+				<div class="controls">
+					<input type="text" |cond="$identifierForm->name!='email_address'" class="email form-control" placeholder="example@gmail.com"
+					 type="email" |cond="$identifierForm->name=='email_address'" name="{$identifierForm->name}" id="{$identifierForm->name}"
+					 value="{$identifierForm->value}" required />
+				</div>
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-lock"></i>
+				</span>
+				<div class="controls">
+					<input type="password" class="password form-control" id="password" name="password" value="" placeholder="********" required
+					/>
+				</div>
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="glyphicon glyphicon-lock"></i>
+				</span>
+				<div class="controls">
+					<input type="password" class="password form-control" id="password2" name="password2" value="" placeholder="********" required
+					/>
+				</div>
+			</div>
+
+			<div class="input-group" loop="$formTags=>$formTag" cond="$formTag->name != 'signature'">
+				<label for="{$formTag->name}" class="control-label">{$formTag->title}</label>
+				<div class="controls">{$formTag->inputTag}</div>
+			</div>
+			<!--
+							   <div class="input-group">
+								   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								   <input type="text" class="name form-control" name="name" value="" maxlength="10" placeholder="홍길동">          
+							   </div>
+									
+							   <div class="input-group">
+								  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+								   <input type="text" class="phonenumber form-control" name="phonenumber" value="" maxlength="13" placeholder="010-1234-5678">    
+							</div>
+									
+							  <div class="input-group">
+								   <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+								   <input type="text" class="birthday form-control" name="birthday" value="" maxlength="8" placeholder="19930415">    
+							</div>
+									<div class="form-group text-center">
+										<label for="male" class="inside_text" style="margin-right:10px">
+											   <input type="radio" name="sex" id="inlineCheckbox1" value="male" style="margin-right:5px"/>남성 </label>
+										<label for="female" class="inside_text">
+											   <input type="radio" name="sex" id="inlineCheckbox2" value="female" style="margin-right:5px"/>여성 </label>
+									   </div>
+							-->
+			<div class="btnArea footer text-center">
+				<input type="submit" value="{$lang->cmd_registration}" class="btn-signup btn btn-round btn-lg btn-neutral" />
+			</div>
+		</form>
 	</div>
-    <form ruleset="@insertMember" id="fo_insert_member" action="./" method="post" enctype="multipart/form-data" class="form-horizontal">
-		<input type="hidden" name="act" value="procMemberInsert" />
-		<input type="hidden" name="xe_validator_id" value="modules/member/skins" />
-		<input type="hidden" name="success_return_url" value="{getUrl('act','dispMemberInfo')}" />
-		<div class="agreement" cond="$member_config->agreement">
-			<div class="text">
-				{$member_config->agreement}
-			</div>
-			<div class="confirm">
-				<label for="accept_agree">
-					<input type="checkbox" name="accept_agreement" value="Y" id="accept_agree" />
-					{$lang->about_accept_agreement}
-				</label>
-			</div>
-		</div>
-		<div class="control-group">
-			<label for="{$identifierForm->name}" class="control-label"><em style="color:red">*</em> {$identifierForm->title}</label>
-			<div class="controls">
-				<input type="text"|cond="$identifierForm->name!='email_address'" type="email"|cond="$identifierForm->name=='email_address'" name="{$identifierForm->name}" id="{$identifierForm->name}" value="{$identifierForm->value}" required />
-			</div>
-		</div>
-		<div class="control-group">
-			<label for="password" class="control-label"><em style="color:red">*</em> {$lang->password}</label>
-			<div class="controls">
-				<input type="password" name="password" id="password" value="" required />
-				<p class="help-inline">{$lang->about_password_strength[$member_config->password_strength]}</p>
-			</div>
-		</div>
-		<div class="control-group">
-			<label for="password2" class="control-label"><em style="color:red">*</em> {$lang->password3}</label>
-			<div class="controls">
-				<input type="password" name="password2" id="password2" value="" required />
-			</div>
-		</div>
+	<script>
+		jQuery(function ($) {
+			// label for setup
+			$('.control-label[for]').each(function () {
+				var $this = $(this);
+				if ($this.attr('for') == '') {
+					$this.attr('for', $this.next().children(':visible:first').attr('id'));
+				}
+			});
+		});
+		(function ($) {
+			$(function () {
+				var option = {
+					changeMonth: true, changeYear: true, gotoCurrent: false, yearRange: '-100:+10', dateFormat: 'yy-mm-dd', onSelect: function () {
 
-		<div class="control-group" loop="$formTags=>$formTag" cond="$formTag->name != 'signature'">
-			<label for="{$formTag->name}" class="control-label">{$formTag->title}</label>
-			<div class="controls">{$formTag->inputTag}</div>
-		</div>
-		
-		<div class="control-group">
-			<div class="control-label">{$lang->allow_mailing}</div>
-			<div class="controls" style="padding-top:5px">
-				<label for="mailingYes"><input type="radio" name="allow_mailing" id="mailingYes" value="Y" checked="checked"|cond="$member_info->allow_mailing == 'Y'" /> {$lang->cmd_yes}</label>
-				<label for="mailingNo"><input type="radio" name="allow_mailing" id="mailingNo" value="N" checked="checked"|cond="$member_info->allow_mailing != 'Y'" /> {$lang->cmd_no}</label>
-			</div>
-		</div>
-		<div class="control-group">
-			<div class="control-label">{$lang->allow_message}</div>
-			<div class="controls" style="padding-top:5px">
-				<label for="allow_{$key}" loop="$lang->allow_message_type=>$key,$val"><input type="radio" name="allow_message" value="{$key}" checked="checked"|cond="$member_info->allow_message == $key || (!$member_info && $key == 'Y')" id="allow_{$key}" /> {$val}</label>
-			</div>
-		</div>
-		<div class="btnArea" style="border-top:1px solid #ccc;padding-top:10px">
-			<input type="submit" value="{$lang->cmd_registration}" class="btn btn-inverse pull-right" />
-			<a href="{getUrl('act','','member_srl','')}" class="btn pull-left">{$lang->cmd_cancel}</a>
-		</div>
-	</form>
-<script>
-jQuery(function($){
-	// label for setup
-	$('.control-label[for]').each(function(){
-		var $this = $(this);
-		if($this.attr('for') == ''){
-			$this.attr('for', $this.next().children(':visible:first').attr('id'));
-		}
-	});
-});
-(function($){
-	$(function(){
-		var option = { changeMonth: true, changeYear: true, gotoCurrent: false,yearRange:'-100:+10', dateFormat:'yy-mm-dd', onSelect:function(){
-
-			$(this).prev('input[type="hidden"]').val(this.value.replace(/-/g,""))}
-		};
-		$.extend(option,$.datepicker.regional['{$lang_type}']);
-		$(".inputDate").datepicker(option);
-		$(".dateRemover").click(function() {
-			$(this).prevAll('input').val('');
-			return false;});
-	});
-})(jQuery);
-</script>
-<include target="./common_footer.html" />
+						$(this).prev('input[type="hidden"]').val(this.value.replace(/-/g, ""))
+					}
+				};
+				$.extend(option, $.datepicker.regional['{$lang_type}']);
+				$(".inputDate").datepicker(option);
+				$(".dateRemover").click(function () {
+					$(this).prevAll('input').val('');
+					return false;
+				});
+			});
+		})(jQuery);
+	</script>
+</section>
+</div>

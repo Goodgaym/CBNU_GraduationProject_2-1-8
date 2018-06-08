@@ -1,0 +1,3 @@
+<?php
+if(!defined('__XE__')) { exit(); }
+return 'O:8:\"stdClass\":9:{s:11:\"access_type\";s:3:\"vid\";s:21:\"newest_comments_count\";s:1:\"5\";s:22:\"newest_documents_count\";s:2:\"20\";s:21:\"newest_textyles_count\";s:2:\"20\";s:23:\"newest_trackbacks_count\";s:1:\"5\";s:7:\"regdate\";s:14:\"20180411173510\";s:25:\"sub_newest_textyles_count\";s:1:\"5\";s:22:\"textyle_creation_count\";s:1:\"1\";s:7:\"_filter\";s:17:\"update_textylehub\";}';

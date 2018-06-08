@@ -4,12 +4,12 @@ $query->setQueryId("getModuleSkinVars");
 $query->setAction("select");
 $query->setPriority("");
 
-${'module_srl1_argument'} = new ConditionArgument('module_srl', $args->module_srl, 'in');
-${'module_srl1_argument'}->checkFilter('number');
-${'module_srl1_argument'}->checkNotNull();
-${'module_srl1_argument'}->createConditionValue();
-if(!${'module_srl1_argument'}->isValid()) return ${'module_srl1_argument'}->getErrorMessage();
-if(${'module_srl1_argument'} !== null) ${'module_srl1_argument'}->setColumnType('number');
+${'module_srl2_argument'} = new ConditionArgument('module_srl', $args->module_srl, 'in');
+${'module_srl2_argument'}->checkFilter('number');
+${'module_srl2_argument'}->checkNotNull();
+${'module_srl2_argument'}->createConditionValue();
+if(!${'module_srl2_argument'}->isValid()) return ${'module_srl2_argument'}->getErrorMessage();
+if(${'module_srl2_argument'} !== null) ${'module_srl2_argument'}->setColumnType('number');
 
 $query->setColumns(array(
 new StarExpression()
@@ -19,7 +19,7 @@ new Table('`xe_module_skins`', '`module_skins`')
 ));
 $query->setConditions(array(
 new ConditionGroup(array(
-new ConditionWithArgument('`module_srl`',$module_srl1_argument,"in")))
+new ConditionWithArgument('`module_srl`',$module_srl2_argument,"in")))
 ));
 $query->setGroups(array());
 $query->setOrder(array());

@@ -4,12 +4,12 @@ $query->setQueryId("getModuleListByInstance");
 $query->setAction("select");
 $query->setPriority("");
 if(isset($args->site_srl)) {
-${'site_srl4_argument'} = new ConditionArgument('site_srl', $args->site_srl, 'equal');
-${'site_srl4_argument'}->checkFilter('number');
-${'site_srl4_argument'}->createConditionValue();
-if(!${'site_srl4_argument'}->isValid()) return ${'site_srl4_argument'}->getErrorMessage();
+${'site_srl1_argument'} = new ConditionArgument('site_srl', $args->site_srl, 'equal');
+${'site_srl1_argument'}->checkFilter('number');
+${'site_srl1_argument'}->createConditionValue();
+if(!${'site_srl1_argument'}->isValid()) return ${'site_srl1_argument'}->getErrorMessage();
 } else
-${'site_srl4_argument'} = NULL;if(${'site_srl4_argument'} !== null) ${'site_srl4_argument'}->setColumnType('number');
+${'site_srl1_argument'} = NULL;if(${'site_srl1_argument'} !== null) ${'site_srl1_argument'}->setColumnType('number');
 
 $query->setColumns(array(
 new StarExpression()
@@ -20,7 +20,7 @@ new Table('`xe_modules`', '`modules`')
 ));
 $query->setConditions(array(
 new ConditionGroup(array(
-new ConditionWithArgument('`site_srl`',$site_srl4_argument,"equal")))
+new ConditionWithArgument('`site_srl`',$site_srl1_argument,"equal")))
 ));
 $query->setGroups(array(
 '`module`' ));

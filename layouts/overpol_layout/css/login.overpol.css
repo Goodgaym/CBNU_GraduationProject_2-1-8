@@ -1,8 +1,12 @@
 @charset "utf-8";
 .logo img{
+	position:absolute; 
     display: block;
     width: 100px;
     height: auto;
+}
+.header {
+    position:relative;
 }
 .header_wrap{
     background-color: #383838
@@ -13,6 +17,21 @@
 }
 .header_wrap.navbar>div{
     display:inline;
+}
+.menu-box{
+    position:absolute;
+	right:0; top:0; 
+    width:300px; height:40px; 
+}
+#gnb {
+	position:absolute; 
+	right:180px; top:0; 
+    height:40px; 
+}
+.menu-login {
+	position:absolute; 
+	right:0; top:0; 
+	height:40px; 
 }
 .menu-login>div{
     font-family: Berlin Sans FB Demi;

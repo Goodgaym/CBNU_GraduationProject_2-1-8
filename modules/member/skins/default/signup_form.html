@@ -24,7 +24,10 @@
 
 			<div class="form-group">
 				<div class="col-md-12 control">
-					<a class="inside-linker" href="#" onClick="$('#signupbox_user').hide(); $('#loginbox').show()">로그인 하기</a>
+					<a class="inside-linker" href="{getUrl('act', 'dispMemberLoginForm')}">
+						<i class="xi-user-add"></i>
+						<span>로그인 하기</span>
+					</a>
 				</div>
 			</div>
 
@@ -54,13 +57,14 @@
 					<i class="glyphicon glyphicon-lock"></i>
 				</span>
 				<div class="controls">
-					<input type="password" class="password form-control" id="password2" name="password2" value="" placeholder="********" required
-					/>
+					<input type="password" class="password form-control" id="password2" name="password2" value="" placeholder="********" required/>
 				</div>
 			</div>
 
 			<div class="input-group" loop="$formTags=>$formTag" cond="$formTag->name != 'signature'">
-				<label for="{$formTag->name}" class="control-label">{$formTag->title}</label>
+				<span class="input-group-addon">
+					<label for="{$formTag->name}" class="control-label">{$formTag->title}</label>
+				</span>
 				<div class="controls">{$formTag->inputTag}</div>
 			</div>
 			<!--

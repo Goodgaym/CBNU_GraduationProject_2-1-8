@@ -15,6 +15,11 @@
 .hide{
     display : hide;
 }
+.menu-box{
+    position:absolute;
+	right:0; top:0; 
+    width:500px; height:40px; 
+}
 .menubar{
     width : 700px;
     height : 40px;
@@ -26,6 +31,11 @@
 }
 .menu li a:hover, .menu li.active a{
     background-color : white !important;
+}
+#gnb {
+	display:inline;
+	position:absolute; 
+	right:180px; top:0
 }
 .portpolio_pic{
     margin-bottom : 30px;

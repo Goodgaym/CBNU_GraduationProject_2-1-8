@@ -153,8 +153,14 @@
 
             // set category
             $obj->module_srl = $module_srl;
-            $obj->title = Context::getLang('init_category_title');
-            $oDocumentController->insertCategory($obj);
+            $obj->title = Context::getLang('포트폴리오');
+			$oDocumentController->insertCategory($obj);
+			
+            $obj->title = Context::getLang('이력서');
+			$oDocumentController->insertCategory($obj);
+
+            $obj->title = Context::getLang('수상');
+			$oDocumentController->insertCategory($obj);
 
             FileHandler::copyDir($this->module_path.'skins/'.$textyle->skin, $oTextyleModel->getTextylePath($module_srl));
 
@@ -170,7 +176,7 @@
             }
             $oMemberModel = &getModel('member');
             $member_info = $oMemberModel->getMemberInfoByEmailAddress($user_id_list[0]);
-
+/*
             $doc->module_srl = $module_srl;
             $doc->title = Context::getLang('sample_title');
             $doc->tags = Context::getLang('sample_tags');
@@ -182,7 +188,7 @@
             $doc->email_address = $member_info->email_address;
             $doc->homepage = $member_info->homepage;
             $oDocumentController->insertDocument($doc, true);
-
+*/
             $output = new Object();
             $output->add('module_srl',$module_srl);
             return $output;

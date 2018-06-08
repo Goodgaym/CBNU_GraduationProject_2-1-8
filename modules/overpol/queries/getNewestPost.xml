@@ -1,0 +1,28 @@
+<query id="getNewestDocuments" action="select">
+    <tables>
+        <table name="documents" alias="documents" />
+        <table name="modules" alias="modules" />
+		<table name="document_categories" alias="category"/>
+    </tables>
+    <columns>
+        <column name="documents.*" />
+    </columns>
+    <conditions>
+		<condition operation="equal" column="modules.module" default="textyle" pipe="and"/>
+        <condition operation="equal" column="documents.module_srl" default="modules.module_srl" filter="number" notnull="notnull" pipe="and" />
+		<condition operation="equal" column="documents.category_srl" default="category.category_srl" pipe="and"/>
+        <condition operation="equal" column="documents.status" var="status" pipe="and" />
+        <group pipe="and">
+            <condition operation="like" column="documents.title" var="s_title" />
+            <condition operation="like" column="documents.content" var="s_content" pipe="or" />
+            <condition operation="like" column="documents.tags" var="s_tag" pipe="or" />
+            <condition operation="like" column="category.title" var="s_category" pipe="or" />
+        </group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="documents.list_order" order="asc" />
+        <list_count var="list_count" default="24" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

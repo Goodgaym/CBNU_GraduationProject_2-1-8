@@ -17,7 +17,7 @@
         /**
          * @berif default skin
          **/
-        var $skin = 'happyLetter';
+        var $skin = 'overpol';
         var $mskin = 'default';
 
         // post list

@@ -1,0 +1,24 @@
+<!--#include("_header.html")-->
+
+<!-- .postListHeader -->
+<div class="postListHeader">
+	<h2 class="h2">{$lang->newest_posts}</h2>
+		<form action="{getUrl('')}" method="get" class="postSearch">
+    		<input type="hidden" name="mid" value="{$module_info->mid}" />
+				<fieldset>
+					<legend>{$lang->cmd_search}</legend>
+					<select name="search_target">
+						<option value="title">{$lang->title}</option>
+						<option value="tag" <!--@if($search_target=='tag')-->selected="selected"<!--@end-->>{$lang->tag}</option>
+						<option value="content" <!--@if($search_target=='content')-->selected="selected"<!--@end-->>{$lang->content}</option>
+					</select>
+					<input name="search_keyword" type="text" value="{htmlspecialchars($search_keyword)}" title="{$lang->cmd_search}" class="inputText" />
+                    <!--@if($search_target && $search_keyword)-->
+					<span class="tcb tcbMedium"><input type="button" value="{$lang->cmd_cancel}" onclick="location.href='{getUrl('','mid',$module_info->mid)}'; return false;"/></span>
+                    <!--@else-->
+					<span class="tcb tcbMedium"><input type="submit" value="{$lang->cmd_search}" /></span>
+                    <!--@end-->
+				</fieldset>
+		</form>
+</div>
+<!--#include("posts.html")-->

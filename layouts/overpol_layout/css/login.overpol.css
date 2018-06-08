@@ -11,22 +11,12 @@
 .header_wrap{
     background-color: #383838
 }
-.header_wrap .navbar{
+.header_wrap  .navbar{
     background-color: #383838;
     border-color: #383838
 }
 .header_wrap.navbar>div{
     display:inline;
-}
-.menu-box{
-    position:absolute;
-	right:0; top:0; 
-    width:300px; height:40px; 
-}
-#gnb {
-	position:absolute; 
-	right:180px; top:0; 
-    height:40px; 
 }
 .menu-login {
 	position:absolute; 
@@ -74,6 +64,7 @@
     background-color: #000;
     filter: alpha(opacity=70);
     opacity: .7
+    
 }
 .login_widget .signin{
     position: absolute;

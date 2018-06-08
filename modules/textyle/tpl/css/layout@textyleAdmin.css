@@ -589,7 +589,7 @@ a.skipToContent{text-align:center;color:#fff;position:absolute;width:100%;font-s
 .pTitle .capRight{right:0;background-position:right top}
 
 /* Writing Option */
-.wOption{position:relative;zoom:1;margin-bottom:40px}
+.wOption{position:relative;zoom:1}
 .wOption .optionTime{position:relative;z-index:2}
 .wOption .cap{position:absolute;width:10px;height:10px;background-image:url(../img/bgRouningFF.gif);background-repeat:no-repeat;font-size:0;line-height:0;overflow:hidden}
 .wOption .cap.capTL{top:-1px;left:-1px;background-position:left top}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+	<title xml:lang="ko">Overpol Default Skin</title>
+	<description xml:lang="ko">
+		예제 모듈의 기본 스킨
+	</description>
+	<version>0.1</version>
+	<date>2018-05-17<date>
+	<author email_address="" link="http://www.facebook.com/Noobggm"
+		<name xml:lang="ko">JUNPRAC</name>
+		</author>
+	<license>GPL</license>
+</skin>

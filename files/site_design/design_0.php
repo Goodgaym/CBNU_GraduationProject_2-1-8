@@ -36,3 +36,5 @@ $designInfo->module->WIDGET = new stdClass;
 $designInfo->module->WIDGET->skin = 'default';
 $designInfo->module->OUTSIDE = new stdClass;
 $designInfo->module->OUTSIDE->skin = 'default';
+$designInfo->module->overpol = new stdClass;
+$designInfo->module->overpol->skin = 'default';

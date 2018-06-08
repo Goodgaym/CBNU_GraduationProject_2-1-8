@@ -20,7 +20,10 @@
 			<h2 class="font_white text-center" style="margin-bottom : 25px">SIGN UP</h2>
 			<div class="form-group">
 				<div class="col-md-12 control">
-					<a class="inside-linker" href="#" onClick="$('#signupbox_user').hide(); $('#loginbox').show()">로그인 하기</a>
+					<a class="inside-linker" href="<?php echo getUrl('act', 'dispMemberLoginForm') ?>">
+						<i class="xi-user-add"></i>
+						<span>로그인 하기</span>
+					</a>
 				</div>
 			</div>
 			<div class="input-group">
@@ -47,13 +50,14 @@
 					<i class="glyphicon glyphicon-lock"></i>
 				</span>
 				<div class="controls">
-					<input type="password" class="password form-control" id="password2" name="password2" value="" placeholder="********" required
-					/>
+					<input type="password" class="password form-control" id="password2" name="password2" value="" placeholder="********" required/>
 				</div>
 			</div>
 			<?php if($__Context->formTags&&count($__Context->formTags))foreach($__Context->formTags as $__Context->formTag){;
 if($__Context->formTag->name != 'signature'){ ?><div class="input-group">
-				<label for="<?php echo $__Context->formTag->name ?>" class="control-label"><?php echo $__Context->formTag->title ?></label>
+				<span class="input-group-addon">
+					<label for="<?php echo $__Context->formTag->name ?>" class="control-label"><?php echo $__Context->formTag->title ?></label>
+				</span>
 				<div class="controls"><?php echo $__Context->formTag->inputTag ?></div>
 			</div><?php }} ?>
 			<!--

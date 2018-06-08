@@ -8,8 +8,8 @@
     class textylehubView extends ModuleObject {
 
         function init() {
-            $oTextyleHubModel = &getModel('textylehub');
-            $this->module_info = $oTextyleHubModel->getTextyleHubInfo();
+            $oTextyleHubModel = &getModel('textylehub');	// 텍스타일허브 모델 생성
+            $this->module_info = $oTextyleHubModel->getTextyleHubInfo();	// 텍스타일 인포 가져오기
             Context::set('module_info', $this->module_info);
             Context::set('module_srl', $this->module_info->module_srl);
 
@@ -153,19 +153,21 @@
         }
 
         function getTextyleSubContent() {
-            $oTextyleModel = &getModel('textyle');
-            $oCommentModel = &getModel('comment');
+            $oTextyleModel = &getModel('textyle');	// 텍스타일 모델 불러오기
+            $oCommentModel = &getModel('comment');	// 코멘트 모델 불러오기
 
-            $is_logged = Context::get('is_logged');
+            $is_logged = Context::get('is_logged');	// is_logged 불러오기
             $logged_info = Context::get('logged_info');
 
-            // get created textyle count for administrator
+			// get created textyle count for administrator
+			// 관리자를 위하여 생성된 텍스타일의 수를 얻음
             if($logged_info->is_admin == 'Y') {
                 $output = executeQuery('textylehub.getTextyleCount');
                 $hub->total_textyle_count = (int)($output->data->count);
             }
 
-            // get logged user's own textyle
+			// get logged user's own textyle
+			// 로그된 사용자에게 텍스타일 얻기 
             if($is_logged) {
                 $args->member_srl = $logged_info->member_srl;
                 $output = executeQueryArray('textylehub.getOwnTextyle', $args);
@@ -175,11 +177,13 @@
                 $hub->own_textyle_count = 0;
             }
 
-            // check creation grant
+			// check creation grant
+			// 만든 사람의 권한 체크
             $hub->enable_creation = $this->grant->create;
             if($logged_info->is_admin != 'Y' && (!$hub->enable_creation || $this->module_info->textyle_creation_count<=$hub->own_textyle_count)) $hub->enable_creation = false;
 
-            // newest comments
+			// newest comments
+			// 최근 댓글 들
             unset($args);
             $args->list_count = $this->module_info->newest_comments_count;
             $output = executeQueryArray('textylehub.getNewestComment',$args);
@@ -192,7 +196,8 @@
                 }
             }
 
-            // newest trackbacks
+			// newest trackbacks
+			// 최근 트랙백 들
             unset($args);
             $args->list_count = $this->module_info->newest_trackbacks_count;
             $output = executeQueryArray('textylehub.getNewestTrackback',$args);

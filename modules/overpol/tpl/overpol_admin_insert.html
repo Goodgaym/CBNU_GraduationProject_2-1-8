@@ -1,0 +1,86 @@
+<!--#include("./header.html")-->
+<!--%import("filter/admin_insert.xml")-->
+<!--%import("js/overpol_admin.js")-->
+<form action="./" method="post" onsubmit="return procFilter(this, admin_insert)" enctype="multipart/form-data" class="x_form-horizontal">
+	<!-- 모듈 이름 -->
+	<div class="x_control-group">
+		<label for="mid" class="x_control-label">{$lang->mid}</label>
+		<div class="x_controls">
+			<input type="text" name="mid" value="{$module_info->mid}" />
+			<a href="#about_mid" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+			<p class="x_help-block" id="about_mid" hidden>{$lang->about_mid}</p>
+		</div>
+	</div>
+	<!-- 브라우저 제목-->
+	<div class="x_control-group">
+		<label for="lang_browser_title" class="x_control-label">{$lang->browser_title}</label>
+		<div class="x_controls">
+            <input type="text" name="browser_title" value="{htmlspecialchars($module_info->browser_title)}" id="browser_title" class="lang_code" />
+			<a href="#about_browser_title" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+            <p class="x_help-block" id="about_browser_title" hidden>{$lang->about_browser_title}</p>
+		</div>
+	</div>
+	<!-- 레이아웃 옵션-->
+	<div class="x_control-group">
+		<label for="layout_srl" class="x_control-label">{$lang->layout}</label>
+		<div class="x_controls">
+            <select name="layout_srl" id="layout_srl">
+				<option value="0">{$lang->notuse}</option>
+				<option loop="$layout_list => $key,$val" value="{$val->layout_srl}" selected="selected"|cond="$module_info->layout_srl==$val->layout_srl">{$val->title}({$val->layout})</option>
+            </select>
+			<a href="#about_layout" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+            <p class="x_help-block" id="about_layout" hidden>{$lang->about_layout}</p>
+		</div>
+	</div>
+	<!-- 스킨 옵션 -->
+	<div class="x_control-group">
+		<label for="skin" class="x_control-label">{$lang->skin}</label>
+		<div class="x_controls">
+            <select name="skin" id="skin">
+                <option loop="$skin_list => $key,$val" value="{$key}" selected="selected"|cond="$module_info->skin==$key ||(!$module_info->skin && $key=='default')">{$val->title}</option>
+            </select>
+			<a href="#about_skin" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+            <p class="x_help-block" id="about_skin" hidden>{$lang->about_skin}</p>
+		</div>
+	</div>
+	<!-- 보여주는 게시글 수 -->
+	<div class="x_control-group">
+		<label for="newest_documents_count" class="x_control-label">{$lang->showing_documents_count}</label>
+		<div class="x_controls">
+            <input type="number" name="newest_documents_count" id="newest_documents_count" value="{$module_info->newest_documents_count}" />
+			<a href="#about_showing_documents_count" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+            <p class="x_help-block" id="about_showing_documents_count" hidden>{$lang->about_showing_documents_count}</p>
+		</div>
+	</div>
+	<!-- 설명 -->
+	<div class="x_control-group">
+		<label for="description" class="x_control-label">{$lang->description}</label>
+		<div class="x_controls">
+            <textarea name="description" id="description" style="vertical-align:top">{htmlspecialchars($module_info->description)}</textarea>
+			<a href="#about_description" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+            <p class="x_help-block" id="about_description" hidden>{$lang->about_description}</p>
+		</div>
+	</div>
+	<!-- 상단 내용 -->
+	<div class="x_control-group">
+		<label for="lang_header_text" class="x_control-label">{$lang->header_text}</label>
+		<div class="x_controls">
+			<textarea name="header_text" id="header_text" class="lang_code">{htmlspecialchars($module_info->header_text)}</textarea>
+			<a href="#about_header_text" data-toggle class="x_icon-question-sign" style="vertical-align:top;margin-top:5px">{$lang->help}</a>
+			<p class="x_help-block" id="about_header_text" hidden>{$lang->about_header_text}</p>
+		</div>
+	</div>
+	<!-- 하단 내용 -->
+	<div class="x_control-group">
+		<label for="lang_footer_text" class="x_control-label">{$lang->footer_text}</label>
+		<div class="x_controls">
+			<textarea name="footer_text" id="footer_text" class="lang_code">{htmlspecialchars($module_info->footer_text)}</textarea>
+			<a href="#about_footer_text" data-toggle class="x_icon-question-sign" style="vertical-align:top;margin-top:5px">{$lang->help}</a>
+			<p class="x_help-block" id="about_footer_text" hidden>{$lang->about_footer_text}</p>
+		</div>
+	</div>
+	<div class="btnArea">
+		<input type="button" value="{$lang->cmd_back}" onclick="history.back()" class="x_btn x_pull-left" />
+		<span class="x_pull-right"><input type="submit" value="{$lang->cmd_registration}" class="x_btn x_btn-primary" /></span>
+	</div>
+</form>

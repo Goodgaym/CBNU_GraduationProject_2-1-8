@@ -7,7 +7,7 @@
 <div id="textyleAdmin" class="textyleAdmin hybrid">
 	<div id="container" class="<?php if($__Context->containerClassName){;
 echo $__Context->containerClassName;
-}else{ ?>ec<?php } ?>">\
+}else{ ?>ec<?php } ?>">
 		<!-- Header -->
 		<div id="header">
 			<a href="#content" class="skipToContent">Skip to content</a>

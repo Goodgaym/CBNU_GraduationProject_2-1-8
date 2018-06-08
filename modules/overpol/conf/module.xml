@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <grants/>
+	<permissions/>
+
+	<actions>
+		<action name="dispOverpolHub" type="view" index="true"/>
+		<action name="dispOverpolSearch" type="view"/>
+		<action name="dispOverpolResume" type="view"/>
+		<action name="dispOverpolPorfolio" type="view"/>
+		<action name="dispOverpolAdminList" type="view" admin_index="true"/>
+		<action name="dispOverpolAdminInsert" type="view"/>
+		<action name="procOverpolAdminInsert" type="controller"/>
+		<action name="dispOverpolAdminInfo" type="view" />
+		<action name="dispOverpolAdminDelete" type="view" />
+		<action name="procOverpolAdminDelete" type="controller" />
+		<action name="dispOverpolAdminGrantInfo" type="view" />
+		<action name="dispOverpolAdminSkinInfo" type="view" />
+	</actions>
+</module>

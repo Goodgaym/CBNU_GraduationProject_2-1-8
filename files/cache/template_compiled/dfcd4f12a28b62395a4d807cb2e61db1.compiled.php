@@ -81,14 +81,19 @@ echo getUrl('');
 							<i class="xi-user-add"></i>
 							<span class="blind">SignIn / SignUp</span>
 						</a>
-						<a href="<?php echo getUrl('act', 'dispMemberSignUpForm') ?>"><?php echo $__Context->lang->cmd_signup ?></a>
 						<?php } ?>
 					</div>
+					
 					<!-- GNB -->
 					<div id="gnb">
 						<ul>
-							<?php if($__Context->main_menu->list&&count($__Context->main_menu->list))foreach($__Context->main_menu->list as $__Context->key1=>$__Context->val1){ ?><li class="active" |cond="$__Context->val1['selected']">
-								<a href="<?php echo $__Context->val1['href'] ?>" target="_blank" |cond="$__Context->val1['open_window']=='Y'"><?php echo $__Context->val1['link'] ?></a>
+							<?php if($__Context->main_menu->list&&count($__Context->main_menu->list))foreach($__Context->main_menu->list as $__Context->key1=>$__Context->val1){ ?><li<?php if($__Context->val1['selected']){ ?> class="active"<?php } ?>>
+								<a href="<?php echo $__Context->val1['href'] ?>"<?php if($__Context->val1['open_window']=='Y'){ ?> target="_blank"<?php } ?>><?php echo $__Context->val1['link'] ?></a>
+								<?php if($__Context->val1['list']){ ?><ul>
+									<?php if($__Context->val1['list']&&count($__Context->val1['list']))foreach($__Context->val1['list'] as $__Context->key2=>$__Context->val2){ ?><li<?php if($__Context->val2['selected']){ ?> class="active"<?php } ?>>
+										<a href="<?php echo $__Context->val2['href'] ?>"<?php if($__Context->val2['open_window']=='Y'){ ?> target="_blank"<?php } ?>><?php echo $__Context->val2['link'] ?></a>
+									</li><?php } ?>
+								</ul><?php } ?>
 							</li><?php } ?>
 						</ul>
 					</div>
@@ -99,35 +104,6 @@ echo getUrl('');
 	</nav>
 </div>
 <!-- END:HEADER -->
-<!-- VISUAL-SUBHEADER -->
-<div style="background-color: #E5E5E5;">
-	<div class="container menubar" align="center">
-		<div id="block">
-			<div class="menu_btn_1"></div>
-			<div class="menu_btn_2"></div>
-			<div class="menu_btn_3"></div>
-		</div>
-		<ul class="nav menu">
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="<?php echo $__Context->layout_info->menu_image_1 ?>" style="margin:5px">전체보기</a>
-			</li>
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="<?php echo $__Context->layout_info->menu_image_2 ?>" style="margin:5px">탐색하기</a>
-			</li>
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="<?php echo $__Context->layout_info->menu_image_3 ?>" style="margin:5px">이력서</a>
-			</li>
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="<?php echo $__Context->layout_info->menu_image_4 ?>" style="margin:5px">포트폴리오</a>
-			</li>
-		</ul>
-	</div>
-</div>
-<!-- /VISUAL -->
 <!-- BODY -->
 <div class="body {$_body_class">
 	<!-- CONTENT -->
@@ -143,8 +119,7 @@ echo getUrl('');
 <!-- END:BODY -->
 <div class="footer">
 	<p>
-		<a href="http://xpressengine.com/" target="_blank">Powered by
-			<strong>XE</strong>
+		<a href="http://xpressengine.com/" target="_blank">
 		</a>
 	</p>
 </div>
@@ -210,7 +185,9 @@ echo getUrl('');
 							</a>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6">
-							<img src="/layouts/overpol_layout/images/signup_corp.png" class="img-responsive" onClick="$('#accountbox').hide(); $('#signupbox_corp').show()">
+							<a href="<?php echo getUrl('act', 'dispMemberSignUpForm') ?>">
+								<img src="/layouts/overpol_layout/images/signup_corp.png" onClick="$('#accountbox').hide();">
+							</a>
 						</div>
 					</div>
 				</div>

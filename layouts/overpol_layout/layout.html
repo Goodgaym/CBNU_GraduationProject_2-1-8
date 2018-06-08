@@ -82,14 +82,19 @@
 							<i class="xi-user-add"></i>
 							<span class="blind">SignIn / SignUp</span>
 						</a>
-						<a href="{getUrl('act', 'dispMemberSignUpForm')}">{$lang->cmd_signup}</a>
 						<!--@end-->
 					</div>
+					
 					<!-- GNB -->
 					<div id="gnb">
 						<ul>
-							<li loop="$main_menu->list=>$key1,$val1" class="active" |cond="$val1['selected']">
-								<a href="{$val1['href']}" target="_blank" |cond="$val1['open_window']=='Y'">{$val1['link']}</a>
+							<li loop="$main_menu->list=>$key1,$val1" class="active"|cond="$val1['selected']">
+								<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'">{$val1['link']}</a>
+								<ul cond="$val1['list']">
+									<li loop="$val1['list']=>$key2,$val2" class="active"|cond="$val2['selected']">
+										<a href="{$val2['href']}" target="_blank"|cond="$val2['open_window']=='Y'">{$val2['link']}</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</div>
@@ -100,38 +105,6 @@
 	</nav>
 </div>
 <!-- END:HEADER -->
-<!-- VISUAL-SUBHEADER -->
-<div style="background-color: #E5E5E5;">
-	<div class="container menubar" align="center">
-		<div id="block">
-			<div class="menu_btn_1"></div>
-			<div class="menu_btn_2"></div>
-			<div class="menu_btn_3"></div>
-		</div>
-		<ul class="nav menu">
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="{$layout_info->menu_image_1}" style="margin:5px">전체보기</a>
-			</li>
-
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="{$layout_info->menu_image_2}" style="margin:5px">탐색하기</a>
-			</li>
-
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="{$layout_info->menu_image_3}" style="margin:5px">이력서</a>
-			</li>
-
-			<li class="col-md-3 col-sm-3 col-xs-6" style="height:50px;">
-				<a>
-					<img src="{$layout_info->menu_image_4}" style="margin:5px">포트폴리오</a>
-			</li>
-		</ul>
-	</div>
-</div>
-<!-- /VISUAL -->
 
 <!-- BODY -->
 <div class="body {$_body_class">
@@ -148,8 +121,7 @@
 <!-- END:BODY -->
 <div class="footer">
 	<p>
-		<a href="http://xpressengine.com/" target="_blank">Powered by
-			<strong>XE</strong>
+		<a href="http://xpressengine.com/" target="_blank">
 		</a>
 	</p>
 </div>
@@ -216,12 +188,14 @@
 					<div class="form-group" align="center">
 						<div class="col-md-6 col-sm-6 col-xs-6">
 							<a href="{getUrl('act', 'dispMemberSignUpForm')}">
-								<img src="images/signup_norm.png" onClick="$('#accountbox').hide();">
+								<img src="./images/signup_norm.png" onClick="$('#accountbox').hide();">
 							</a>
 						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6">
-							<img src="images/signup_corp.png" class="img-responsive" onClick="$('#accountbox').hide(); $('#signupbox_corp').show()">
+							<a href="{getUrl('act', 'dispMemberSignUpForm')}">
+								<img src="./images/signup_corp.png" onClick="$('#accountbox').hide();">
+							</a>
 						</div>
 					</div>
 				</div>

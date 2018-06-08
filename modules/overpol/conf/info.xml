@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+	<title xml:lang="ko">Overpol</title>
+	<description xml:lang="ko">Overpol 모듈 만들기 예제</description>
+	<version>0.1</version>
+	<date>2018-05-14</date>
+	<category>service</category>
+
+	<author email_address="jon501@naver.com" link="http://www.facebook.com/NoobGG">
+		<name xml:lang="ko">JUNPRAC</name>
+	</author>
+</module>

@@ -48,11 +48,13 @@ window.open('index.php?act=dispTextyle&preview=<?php echo $__Context->preview ?>
 													<?php $__Context->_i++ ?>
 												<?php } ?>
 											</select>
+											<!-- 카테고리 추가
 											<span class="btnGray medium addCategoryToggle"><button type="button" onclick="jQuery('#add_category').toggleClass('open')"><img src="/modules/textyle/tpl/img/iconAdd.gif" width="8" height="8" alt="<?php echo $__Context->lang->add_category ?>" /></button></span>
-											<span id="add_category" class="addCategory">
+												<span id="add_category" class="addCategory">
 												<input type="text" name="add_category" class="iText" />
 												<span class="btnGray medium"><button type="button" onclick="addCategory()"><?php echo $__Context->lang->cmd_insert ?></button></span>
 											</span>
+											-->
 			
 										</td>
 									</tr>

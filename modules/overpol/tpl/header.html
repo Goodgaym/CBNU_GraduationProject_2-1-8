@@ -1,0 +1,12 @@
+<div class="x_page-header">
+	<h1>
+		{$lang->overpol} {$lang->overpol_management}
+	</h1>
+</div>
+<p class="x_alert x_alert-info" id="aboutModule" hidden>{nl2br($lang->about_overpol)}</p>
+<ul class="x_nav x_nav-tabs" cond="$module_info">
+	<li class="x_active"|cond="$act=='dispOverpolAdminList'"><a href="{getUrl('act','dispOverpolAdminList')}">{$lang->cmd_overpol_list}</a></li>
+	<li class="x_active"|cond="$act=='dispOverpolAdminGrantInfo'"><a href="{getUrl('act','dispOverpolAdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
+	<li class="x_active"|cond="$act=='dispOverpolAdminSkinInfo'"><a href="{getUrl('act','dispOverpolAdminSkinInfo')}">{$lang->cmd_manage_skin}</a></li>
+	<li><a href="{getUrl('','mid',$module_info->mid)}">{$lang->cmd_move}</a></li>
+</ul>
